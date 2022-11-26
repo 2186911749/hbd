@@ -105,10 +105,10 @@ if __name__ == '__main__':
         tools.server(sckey, "用户不存在或密码错误")
         tools.mail(my_sender, my_pass, my_user, "用户不存在或密码错误")
     elif login_status != "操作成功":
-        print("我也不知道发生啥了，自己手动北温打吧？")
+        print("我也不知道发生啥了，自己手动报温打吧？")
         print("返回的登录结果是：  " + login_status)
-        tools.server(sckey, "北温打失败，请手动北温打")
-        tools.mail(my_sender, my_pass, my_user, "北温打失败，请手动北温打")
+        tools.server(sckey, "北温打失败，请手动报温打")
+        tools.mail(my_sender, my_pass, my_user, "北温打失败，请手动报温打")
     else:
         # 拿到 token
         login_token = json_login_r["token"]
@@ -131,11 +131,11 @@ if __name__ == '__main__':
         # 判断北温打是否成功
         status = json_post_health["msg"]
         if status == "操作成功":
-            print("北温打完毕。")
-            tools.server(sckey, "北温打完毕")
-            tools.mail(my_sender, my_pass, my_user, "北温打完毕")
+            print("小北体温上报完毕。")
+            tools.server(sckey, "小北体温上报完毕")
+            tools.mail(my_sender, my_pass, my_user, "小北体温上报完毕")
         else:
-            print("我也不知道啥情况，自己看输出结果 debug 下或者自己手动北温打吧？")
+            print("我也不知道啥情况，自己看输出结果 debug 下或者自己手动报体温吧？")
             print("返回的错误/打卡结果是:   " + status)
-            tools.server(sckey, "北温打失败，请手动北温打")
-            tools.mail(my_sender, my_pass, my_user, "北温打失败，请手动北温打")
+            tools.server(sckey, "体温上报失败")
+            tools.mail(my_sender, my_pass, my_user, "体温上报失败")
